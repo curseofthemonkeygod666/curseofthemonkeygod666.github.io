@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Potta+One&family=Yuji+Mai&display=swap" rel="stylesheet">
+  <style>
+    .col-centered {
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      left:0;
+      right:0;
+    }
+
+    .yuji-mai-regular {
+      font-family: "Yuji Mai", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .potta-one-regular {
+      font-family: "Potta One", system-ui;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .max-size-logo {
+      max-width: 500px;
+      max-height: 500px;
+    }
+  </style>
+  <script>
+    function calculateTimeRemaining() {
+      const countdownDate = new Date("April 3, 2024 00:00:00").getTime();
+      const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Calculate seconds
+
+        document.getElementById("day-count").innerText = days;
+        document.getElementById("hour-count").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minute-count").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds-count").innerText = seconds < 10 ? "0" + seconds : seconds; // Update seconds display
+
+        document.getElementById("countdown-timer").classList.remove("opacity-0");
+        document.getElementById("countdown-timer").classList.remove("-top-4");
+        document.getElementById("countdown-timer").classList.add("opacity-100");
+        document.getElementById("countdown-timer").classList.add("top-0");
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown-timer").innerHTML = "The time has arrived!";
+        }
+      }, 1000);
+    }
+  </script>
+</head>
+<body onload="calculateTimeRemaining()" class="bg-black">
+  <div class="flex justify-center pt-14 lg:pt-10 xl:pt-0 items-center min-h-screen">
+    <div class="text-center px-4">
+      <div class="text-red-500 mx-auto text-3xl md:text-5xl w-11/12 md:w-10/12 col-centered potta-one-regular font-extrabold">The prophecy has been foretold. The one true monkey god will rise again, and rivers of non-monkey infidel blood will flow.</div>
+      <img src="monkey-logo-new.png" alt="Centered Image" class="mt-10 inline-block max-w-xs md:max-w-lg">
+      <div>
+        <div id="countdown-timer" class="opacity-0 mb-14 xl:mb-0 relative -top-4 duration-500 font-extrabold potta-one-regular text-xl md:text-3xl lg:text-5xl p-4 md:p-8 rounded-md inline-block bg-white">
+          <span id="day-count">0</span>d:<span id="hour-count">00</span>h:<span id="minute-count">00</span>m:<span id="seconds-count">00</span>s
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
