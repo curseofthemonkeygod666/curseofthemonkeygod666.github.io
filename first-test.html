@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Potta+One&family=Yuji+Mai&display=swap" rel="stylesheet">
+  <style>
+    .col-centered {
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      left:0;
+      right:0;
+    }
+
+    .yuji-mai-regular {
+      font-family: "Yuji Mai", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .monkey-logo-2 {
+      max-width:300px;
+      max-height:300px;
+    }
+
+    .potta-one-regular {
+      font-family: "Potta One", system-ui;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .max-size-logo {
+      max-width: 500px;
+      max-height: 500px;
+    }
+  </style>
+  <script>
+    function calculateTimeRemaining() {
+      const countdownDate = new Date("April 3, 2024 00:00:00").getTime();
+      const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Calculate seconds
+
+        document.getElementById("day-count").innerText = days;
+        document.getElementById("hour-count").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minute-count").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds-count").innerText = seconds < 10 ? "0" + seconds : seconds; // Update seconds display
+
+        document.getElementById("countdown-timer").classList.remove("opacity-0");
+        document.getElementById("countdown-timer").classList.remove("-top-4");
+        document.getElementById("countdown-timer").classList.add("opacity-100");
+        document.getElementById("countdown-timer").classList.add("top-0");
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown-timer").innerHTML = "The time has arrived!";
+        }
+      }, 1000);
+    }
+
+    function submitPhrase() {
+      var phraseCorrect = false;
+      let str1 = "I must discipline the earth";
+      let str2 = document.getElementById("phrase-entry").value;
+
+      let str1Clean = str1.toLowerCase().replace(/[^a-z0-9]/g, '');
+      let str2Clean = str2.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+      if (str1Clean === str2Clean) {
+        document.getElementById("phrase-error").classList.remove("opacity-0");
+        document.getElementById("phrase-error").classList.add("opacity-100");
+        document.getElementById("phrase-error").innerText = "You did it!";
+        window.location = "victory-x-1.html";
+      } else {
+        document.getElementById("phrase-error").classList.remove("opacity-0");
+        document.getElementById("phrase-error").classList.add("opacity-100");
+        document.getElementById("phrase-error").innerText = "You have shamed the holy monkey with your wrong answer! How could you!";
+      }
+    }
+  </script>
+</head>
+<body onload="calculateTimeRemaining()" class="bg-black py-10 px-4 md:p-20">
+  
+  <div class = "potta-one-regular text-center font-extrabold text-3xl md:text-5xl text-red-500 col-centered">
+    <img src = "first-test.png" class = "monkey-logo-2 col-centered mt-10" />
+    <div class = "text-5xl mb-12">THE FIRST TEST OF FAITH</div>
+    <div class = "text-2xl md:text-3xl mb-12 w-11/12 md:w-8/12 col-centered italic">To pass this test, one must simply consult the book of the false prophet. However, only a truly devoted and skilled member of the Sock Moneky Cult&#8482; could reveal these sacred texts by considering the holy numbers below.</div>
+    <div>
+    <div class = "inline-block border-b-8 pb-4 border-red-500 mb-4">
+    1. Beware the false prophet
+    </div>
+  </div>
+
+    <div class = "mt-6">
+      24-16-[2-4] <!--(the little prince)-->
+    </div>
+    <div class = "mt-6">
+      4-6-6 <!--(is)-->
+    </div>
+
+    <div class = "mt-6">
+      19-25-3 <!--(no)-->
+    </div>
+
+    <div class = "mt-6">
+      19-22-3 <!--(prince)-->
+    </div>
+
+    <div class = "mt-6">
+      19-27-9 <!--(at)-->
+    </div>
+
+    <div class = "mt-6">
+      18-13-6 <!--(all)-->
+    </div>
+
+    <div class = "mt-14">
+      <div class = "border-b-8 pb-4 border-red-500 inline-block mb-4">
+      2. Know who's boss
+      </div>
+      <div class = "mt-6">
+        37-2-8   <!--(I)-->   
+      </div>
+      <div class = "mt-6">
+        32-2-9 <!--(am)-->
+      </div>
+      <div class = "mt-6">
+        13-3-3 <!--(the)-->
+      </div>
+      <div class = "mt-6">
+        10-6-4 <!--(new)-->
+      </div>
+      <div class = "mt-6">
+        29-2-4 <!--(king)-->
+      </div>
+      <div class = "mt-6">
+        31-28-1 <!--(of)-->
+      </div>
+      <div class = "mt-6">
+        13-3-3 <!--(the)-->
+      </div>
+      <div class = "mt-6">
+        9-5-8 <!--(Earth)-->
+      </div>
+    </div>
+
+    <div class = "mt-14">
+      <div class = "border-b-8 pb-4 border-red-500 inline-block mb-4">
+      3. Why humans must be replaced by sock monkeys
+      </div>
+      <div class = "mt-6">
+        15-10-[1-5]   <!--(It's a question of discipline)-->   
+      </div>
+      <div class = "mt-6">
+        14-14-[7-23] <!--(And I was forced to make a great mental effort to understand this problem all by myself)-->
+      </div>
+      <div class = "mt-6">
+        3-23-4<!--(man)-->
+      </div>
+      <div class = "mt-6">
+        12-8-8 <!--(must)-->
+      </div>
+      <div class = "mt-6">
+        8-29-3 <!--go-->
+      </div>
+    </div>
+  </div>
+
+  <div class = "mt-12 border-t-8 pt-10 text-center text-red-500 text-3xl  md:text-5xl potta-one-regular border-red-500 pb-10">
+    Each answer is a page. Perform the below operation on this book of hidden truth and enter the phrase below as a single sentence.
+  
+    <div class = "mt-10">
+      2-1-1 <!--(I)-->
+    </div>
+    <div class = "mt-6">
+      3-4-1 <!--(must)-->
+    </div>
+    <div class = "mt-6">
+      3-1-5 <!--(discipline)-->
+    </div>
+    <div class = "mt-6">
+      2-7-1 <!--(the)-->
+    </div>
+    <div class = "mt-6">
+      2-8-1 <!--(Earth)-->
+    </div>
+
+    <input id = "phrase-entry" type = "text" class = "mt-10 block col-centered w-11/12 p-4 potta-one-regular text-2xl md:text-3xl bg-white rounded-md bg-red-500 text-black" placeholder="Enter the hidden phrase" /> 
+    <div class = "mt-8 col-centered text-center">
+      <div onclick = "submitPhrase()" class = "inline-block bg-red-500 px-6 rounded-md duration-200 cursor-pointer py-4 potta-one-regular text-3xl text-black border-4 border-red-500 hover:bg-transparent hover:text-red-500">
+        Submit
+      </div>
+    </div>
+    <div id = "phrase-error" class = "text-3xl text-red-500 mt-8 opacity-0 duration-300 potta-one-regular font-extrabold">
+
+    </div>
+  </div>
+
+  <div class="flex hidden justify-center pt-14 lg:pt-10 xl:pt-0 items-center min-h-screen">
+    <div class="text-center px-4">
+      <div class="text-red-500 mx-auto text-3xl md:text-5xl w-11/12 md:w-10/12 col-centered potta-one-regular font-extrabold">The prophecy has been foretold. The one true monkey god will rise again, and rivers of non-monkey infidel blood will flow.</div>
+      <img src="monkey-logo-new.png" alt="Centered Image" class="mt-10 inline-block max-w-xs md:max-w-lg">
+      <div>
+        <div id="countdown-timer" class="opacity-0 mb-14 xl:mb-0 relative -top-4 duration-500 font-extrabold potta-one-regular text-xl md:text-3xl lg:text-5xl p-4 md:p-8 rounded-md inline-block bg-white">
+          <span id="day-count">0</span>d:<span id="hour-count">00</span>h:<span id="minute-count">00</span>m:<span id="seconds-count">00</span>s
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

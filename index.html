@@ -58,7 +58,11 @@
 
         if (distance < 0) {
           clearInterval(x);
-          document.getElementById("countdown-timer").innerHTML = "The time has arrived!";
+          document.getElementById("countdown-timer").innerHTML = "Begin first test of faith";
+          document.getElementById("countdown-timer").classList.add("hover:bg-transparent");
+          document.getElementById("countdown-timer").classList.add("hover:text-white");
+          document.getElementById("countdown-timer").classList.add("duration-200");
+          document.getElementById("countdown-timer").href = "first-test.html";
         }
       }, 1000);
     }
@@ -70,9 +74,9 @@
       <div class="text-red-500 mx-auto text-3xl md:text-5xl w-11/12 md:w-10/12 col-centered potta-one-regular font-extrabold">The prophecy has been foretold. The one true monkey god will rise again, and rivers of non-monkey infidel blood will flow.</div>
       <img src="monkey-logo-new.png" alt="Centered Image" class="mt-10 inline-block max-w-xs md:max-w-lg">
       <div>
-        <div id="countdown-timer" class="opacity-0 mb-14 xl:mb-0 relative -top-4 duration-500 font-extrabold potta-one-regular text-xl md:text-3xl lg:text-5xl p-4 md:p-8 rounded-md inline-block bg-white">
+        <a id="countdown-timer" class="opacity-0 mb-14 xl:mb-0 border-4 border-white relative -top-4 duration-500 font-extrabold potta-one-regular text-xl md:text-3xl lg:text-5xl p-4 md:p-8 rounded-md inline-block bg-white">
           <span id="day-count">0</span>d:<span id="hour-count">00</span>h:<span id="minute-count">00</span>m:<span id="seconds-count">00</span>s
-        </div>
+        </a>
       </div>
     </div>
   </div>

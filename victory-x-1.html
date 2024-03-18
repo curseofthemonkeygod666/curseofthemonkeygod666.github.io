@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Potta+One&family=Yuji+Mai&display=swap" rel="stylesheet">
+  <style>
+    .col-centered {
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      left:0;
+      right:0;
+    }
+
+    .yuji-mai-regular {
+      font-family: "Yuji Mai", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .monkey-logo-2 {
+      max-width:300px;
+      max-height:300px;
+    }
+
+    .monkey-logo-3 {
+      max-width:225px;
+      max-height:225px;
+    }
+
+    .potta-one-regular {
+      font-family: "Potta One", system-ui;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .max-size-logo {
+      max-width: 500px;
+      max-height: 500px;
+    }
+  </style>
+  <script>
+    function calculateTimeRemaining() {
+      const countdownDate = new Date("April 3, 2024 00:00:00").getTime();
+      const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Calculate seconds
+
+        document.getElementById("day-count").innerText = days;
+        document.getElementById("hour-count").innerText = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minute-count").innerText = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds-count").innerText = seconds < 10 ? "0" + seconds : seconds; // Update seconds display
+
+        document.getElementById("countdown-timer").classList.remove("opacity-0");
+        document.getElementById("countdown-timer").classList.remove("-top-4");
+        document.getElementById("countdown-timer").classList.add("opacity-100");
+        document.getElementById("countdown-timer").classList.add("top-0");
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown-timer").innerHTML = "The time has arrived!";
+        }
+      }, 1000);
+    }
+
+    function submitPhrase() {
+      var phraseCorrect = false;
+      let str1 = "I must discipline the earth";
+      let str2 = document.getElementById("phrase-entry").value;
+
+      let str1Clean = str1.toLowerCase().replace(/[^a-z0-9]/g, '');
+      let str2Clean = str2.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+      if (str1Clean === str2Clean) {
+        document.getElementById("phrase-error").classList.remove("opacity-0");
+        document.getElementById("phrase-error").classList.add("opacity-100");
+        document.getElementById("phrase-error").innerText = "You did it!";
+        window.location = "victory-x-1.html";
+      } else {
+        document.getElementById("phrase-error").classList.remove("opacity-0");
+        document.getElementById("phrase-error").classList.add("opacity-100");
+        document.getElementById("phrase-error").innerText = "You have shamed the holy monkey with your wrong answer! How could you!";
+      }
+    }
+  </script>
+</head>
+<body onload="calculateTimeRemaining()" class="bg-black py-10 px-4 md:p-20">
+  
+  <div class = "potta-one-regular text-center font-extrabold text-3xl md:text-5xl text-red-500 col-centered">
+    <img src = "monkey-victory-1.png" class = "monkey-logo-2 col-centered mt-10" />
+    <div class = "text-5xl mb-12">HAIL SOCKTAN! YOU PASSED THE FIRST TEST!</div>
+    <div class = "text-2xl md:text-3xl mb-12 w-11/12 md:w-8/12 col-centered italic">Having passed the first test of faith, you are now welcomed with loving arms into the inner circle of the Sock Moneky Cult&#8482;. Meet us at the rendezvous point using this convinently rhyming clue.</div>
+    <div>
+    <div class = "inline-block text-white border-b-8 pb-4 border-white mb-4">
+        The rendezvous point
+    </div>
+    <div class = "text-2xl mt-6 text-white md:text-3xl mb-12 w-11/12 md:w-8/12 col-centered italic">
+        By the hills edge, where the adventure began
+    </div>
+    <div class = "text-2xl mt-4 text-white md:text-3xl mb-12 w-11/12 md:w-8/12 col-centered italic">
+        Beneath the tallest hill, far from the city's span
+    </div>
+    
+    <div class = "text-2xl mt-4 text-white md:text-3xl mb-12 w-11/12 md:w-8/12 col-centered italic">
+        Look for the aged guardian, firm in its stance
+    </div>
+
+    <div class = "text-2xl mt-4 text-white md:text-3xl mb-12 w-11/12 md:w-8/12 col-centered italic">
+        Under its many ringed shadow you'll find your next chance
+    </div>
+  </div>
+
+  <div class = "text-red-500 potta-one-regular text-3xl md:text-5xl w-11/12 md:w-8/12 col-centered text-center">
+    Now go!
+  </div>
+
+  <div class ="mt-8">
+    <img src = "spooky-signoff.png" class = "monkey-logo-3 col-centered" />
+  </div>
+
+   
+</body>
+</html>
